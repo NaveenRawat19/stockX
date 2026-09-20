@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signal Assembly | Stock Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/ui/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark">S</span>
+        <span>Signal Assembly</span>
+      </a>
+      <div class="topbar-status"><span class="status-dot"></span><span id="connectionLabel">API ready</span></div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">LANGGRAPH / LIVE RESEARCH CONTROL</p>
+          <h1>Find the signal<br><em>before the noise.</em></h1>
+          <p class="hero-copy">A web-first research graph that narrows the market, checks live prices, and ranks the strongest candidates.</p>
+        </div>
+        <div class="hero-note"><span class="note-line"></span><span>US MARKET<br><strong>REAL-TIME PIPELINE</strong></span></div>
+      </section>
+
+      <section class="control-grid">
+        <form id="researchForm" class="command-panel">
+          <div class="panel-heading"><span class="section-kicker">01 / DEFINE SEARCH</span><span class="mono">WS /api/ws</span></div>
+          <label for="objective">Research objective</label>
+          <textarea id="objective" rows="3">Find the best performing US stocks</textarea>
+          <div class="field-row">
+            <div><label for="market">Market</label><select id="market">
+              <option value="US">US equities</option><option value="IN">India equities</option>
+              <option value="GB">UK equities</option><option value="CA">Canada equities</option>
+              <option value="AU">Australia equities</option><option value="DE">Germany equities</option>
+              <option value="JP">Japan equities</option><option value="HK">Hong Kong equities</option>
+            </select></div>
+            <div><label for="limit">Candidates</label><select id="limit"><option>3</option><option>5</option><option>10</option></select></div>
+          </div>
+          <button class="run-button" type="submit"><span>Run research graph</span><span class="button-arrow">↗</span></button>
+          <p id="formMessage" class="form-message">Ready to connect to the orchestrator.</p>
+        </form>
+
+        <div class="graph-panel">
+          <div class="panel-heading"><span class="section-kicker">02 / GRAPH EXECUTION</span><span id="runState" class="run-state">IDLE</span></div>
+          <div class="graph-canvas" id="graphCanvas">
+            <div class="graph-line"></div>
+            <div class="graph-nodes">
+              <div class="graph-node" data-node="news_search"><span class="node-index">01</span><span class="node-name">NEWS SEARCH</span><span class="node-detail">find companies</span></div>
+              <div class="graph-node" data-node="market_data"><span class="node-index">02</span><span class="node-name">MARKET DATA</span><span class="node-detail">read history</span></div>
+              <div class="graph-node" data-node="universe"><span class="node-index">03</span><span class="node-name">UNIVERSE</span><span class="node-detail">validate stocks</span></div>
+              <div class="graph-node" data-node="fundamental"><span class="node-index">04</span><span class="node-name">FUNDAMENTAL</span><span class="node-detail">local prices</span></div>
+              <div class="graph-node" data-node="technical"><span class="node-index">05</span><span class="node-name">TECHNICAL</span><span class="node-detail">read candles</span></div>
+              <div class="graph-node" data-node="scoring"><span class="node-index">06</span><span class="node-name">SCORING</span><span class="node-detail">rank signals</span></div>
+            </div>
+          </div>
+          <div id="activityLog" class="activity-log"><span class="log-caret">></span><span>Waiting for a run.</span></div>
+        </div>
+      </section>
+
+      <section class="agent-section">
+        <div class="results-header"><div><span class="section-kicker">03 / AGENT OUTPUT</span><h2>Analysis stream</h2></div><span class="result-count">LIVE NODE RESULTS</span></div>
+        <div id="agentOutput" class="agent-output"><div class="empty-state"><span class="empty-number">--</span><span>Each agent's result will appear here as the graph advances.</span></div></div>
+      </section>
+
+      <section class="results-section">
+        <div class="results-header"><div><span class="section-kicker">04 / OUTPUT</span><h2>Market shortlist</h2></div><span id="resultCount" class="result-count">0 candidates</span></div>
+        <div id="resultsEmpty" class="empty-state"><span class="empty-number">--</span><span>Run the graph to populate ranked candidates and evidence.</span></div>
+        <div id="resultsTable" class="results-table hidden"></div>
+      </section>
+    </main>
+
+    <footer><span>STOCKX RESEARCH SYSTEM</span><span>LOCAL MARKET DATA + LANGGRAPH</span></footer>
+  </div>
+  <script src="/ui/app.js?v=3"></script>
+</body>
+</html>
