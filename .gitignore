@@ -5,6 +5,7 @@ venv/
 tests
 agent.md
 stock_downloader.py
+
 # Python
 __pycache__/
 *.py[cod]
