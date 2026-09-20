@@ -1,9 +1,21 @@
-.venv
+# Environment
+.venv/
+venv/
 .env
-.nse_bhavcopy
-.pytest_cache
-data/
+tests
 agent.md
 stock_downloader.py
-tests
-**/__pycache__/
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Data
+data/
+.nse_bhavcopy/
+
+# IDE
+.vscode/
+
+# OS
+.DS_Store
