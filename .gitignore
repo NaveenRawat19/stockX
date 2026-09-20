@@ -1,0 +1,8 @@
+.venv
+.env
+.nse_bhavcopy
+.pytest_cache
+data/
+agent.md
+stock_downloader.py
+tests
