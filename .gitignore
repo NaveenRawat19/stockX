@@ -6,4 +6,4 @@ data/
 agent.md
 stock_downloader.py
 tests
-app\__pycache__
+app/__pycache__/
